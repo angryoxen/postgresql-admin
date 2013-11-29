@@ -19,7 +19,7 @@ SELECT *,
   WHEN reltuples > 0 THEN
     round(100.0 * n_dead_tup / (reltuples))
   ELSE 0
-  END 
+  END
   AS pct_dead
 FROM (
   SELECT
@@ -49,7 +49,7 @@ FROM (
         pg_stat_get_last_autoanalyze_time(C.oid)
       )
     ) AS last_analyze
-  FROM 
+  FROM
     pg_class C
     LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
   WHERE
